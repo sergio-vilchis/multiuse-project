@@ -4,7 +4,7 @@
   "description": "[![Node.js CI](https://github.com/sergio-vilchis/resumee/actions/workflows/node.js.yml/badge.svg)](https://github.com/sergio-vilchis/resumee/actions/workflows/node.js.yml)\r [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sergio-vilchis_resumee&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sergio-vilchis_resumee)\r [![Dependency Review](https://github.com/sergio-vilchis/resumee/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/sergio-vilchis/resumee/actions/workflows/dependency-review.yml)\r [![Deploy to Amazon ECS](https://github.com/sergio-vilchis/resumee/actions/workflows/aws.yml/badge.svg)](https://github.com/sergio-vilchis/resumee/actions/workflows/aws.yml)\r ## Sergio Vilchis Quintero Resumee\r My personal resumee",
   "main": "main.js",
   "scripts": {
-    "test": "nyc --reporter=lcov --reporter=text-summary mocha"
+    "test": "nyc -x \"**/tests/**\" --reporter=lcov --reporter=text-summary mocha"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/sergio-vilchis/resumee#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "coverage": "^0.4.1",
     "express": "^4.18.0",
     "http": "^0.0.1-security",
