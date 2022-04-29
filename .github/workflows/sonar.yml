@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: npm i nyc --save-dev
     - name: Running Node
-      run: node main.js
+      run: node main.js&
     - name: Test Coverage
       run: npm test
     - name: SonarCloud Scan
