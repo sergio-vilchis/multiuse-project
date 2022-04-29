@@ -15,4 +15,8 @@ module.exports = function (app) {
     app.get('/', (req, res) => {
         res.send('Saludos desde express');
     });
+
+    app.get('/login', (req, res) => {
+        res.send('Saludos desde express Sergio');
+    });
 };

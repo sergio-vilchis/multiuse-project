@@ -15,3 +15,15 @@ describe('GET root 200',()=>{
   });
   });
  });
+
+ describe('GET login 200',()=>{
+  it('Should answer at /login in port 3000', (done) => {
+  chai.request(url)
+  .get('/login')
+  .end( function(err,res){
+  console.log(res.body)
+  expect(res).to.have.status(200);
+  done();
+  });
+  });
+ });
