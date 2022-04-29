@@ -1,22 +1,11 @@
 'use strict';
 module.exports = function (app) {
 
-    let usuario = {
-        nombre: '',
-        apellido: ''
-    }
-
-    let respuesta = {
-        error: false,
-        codigo: 200,
-        mensaje: ''
-    }
-
-    app.get('/', (req, res) => {
+    app.get('/', (_req, res) => {
         res.send('Saludos desde express');
     });
 
-    app.get('/login', (req, res) => {
-        res.send('Saludos desde express Sergio');
+    app.get('/login', (_req, res) => {
+        res.send('Saludos desde express Danya');
     });
 };
