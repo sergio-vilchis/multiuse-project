@@ -15,6 +15,6 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.AWS_HOST }}
-          username: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          username: ${{ secrets.AWS_USER }}
+          key: ${{ secrets.AWS_KEY }}
           script: sh deploy.sh
