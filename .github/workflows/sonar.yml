@@ -15,6 +15,8 @@ jobs:
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
+    - name: Install dependencies
+      run: npm i nyc --save-dev
     - name: Test Coverage
       run: npm test
     - name: SonarCloud Scan
