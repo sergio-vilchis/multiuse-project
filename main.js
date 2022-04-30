@@ -8,3 +8,4 @@ var routes = require('./server/login'); //importing route
 routes(app); //register the route
 app.listen(port);
 console.log('todo list RESTful API server started on: ' + port);
+module.exports = app;
