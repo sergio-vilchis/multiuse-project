@@ -4,7 +4,7 @@ module.exports = function (clientApp) {
     var mainFolder = "client/front-end";
     const fs = require('fs').promises;
 
-    clientApp.get('/', (_req, res) => {
+    clientApp.get('/', (req, res) => {
         fs.readFile(mainFolder+"/index.html")
         .then(contents => {
             res.setHeader("Content-Type", contentTypeHtml);
