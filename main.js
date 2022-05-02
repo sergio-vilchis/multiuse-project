@@ -14,6 +14,8 @@ var express = require('express'),
 	//Client Server
 	clientApp.use(bodyParser.urlencoded({ extended: true }));
 	clientApp.use(bodyParser.json());
+	var clientServer = require('./client/index.js');
+	clientServer(clientApp);
 	clientApp.listen(portClient);
 	console.log('Client app started on: ' + portClient);
 
@@ -24,4 +26,5 @@ var express = require('express'),
 	app.listen(port);
 	console.log('RESTful API server started on: ' + port);
 
-	module.exports = app;
+	module.exports.app = app;
+	module.exports.clientApp = clientApp;
