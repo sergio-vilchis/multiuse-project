@@ -25,6 +25,8 @@ var express = require('express'),
 	routes(app); //register the route
 	app.listen(port);
 	console.log('RESTful API server started on: ' + port);
+	var coso = "";
+	var coso2 = "";
 
 	module.exports.app = app;
 	module.exports.clientApp = clientApp;
