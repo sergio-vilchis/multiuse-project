@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../main')
+const app = require('../../main').app
 
 describe('GET root 200', () => {
   it('Should answer with 200', () => {
