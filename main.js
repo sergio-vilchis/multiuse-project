@@ -14,16 +14,19 @@ var express = require('express'),
 	// HTTPS support
 	var https = require('https');
 	var fs = require('fs');
-	var privateKey  = fs.readFileSync('sslcert/multiuseapp.key', 'utf8');
-	var certificate = fs.readFileSync('sslcert/multiuseapp.crt', 'utf8');
-	var credentials = {key: privateKey, cert: certificate};
+	var ca = fs.readFileSync('../sslcert/multiuseapp_ddns_net.pem-chain', {encoding:'utf8'});
+	let options = {
+		cert: fs.readFileSync('../sslcert/multiuseapp_ddns_net.pem', {encoding:'utf8'}),
+		key: fs.readFileSync('../sslcert/multiuseapp.key', {encoding:'utf8'}),
+		ca: ca.split('-----END CERTIFICATE-----\r\n') .map(cert => cert +'-----END CERTIFICATE-----\r\n')
+	}
 
 	//Client Server
 	clientApp.use(bodyParser.urlencoded({ extended: true }));
 	clientApp.use(bodyParser.json());
 	var clientServer = require('./client/index.js');
 	clientServer(clientApp);
-	var httpsServerClient = https.createServer(credentials, clientApp);
+	var httpsServerClient = https.createServer(options, clientApp);
 	httpsServerClient.listen(portClient);
 	console.log('Client app started on: ' + portClient);
 
@@ -31,7 +34,7 @@ var express = require('express'),
 	app.use(bodyParser.json());
 	var routes = require('./server/login'); //importing login route to server
 	routes(app); //register the route
-	var httpsServer = https.createServer(credentials, app);
+	var httpsServer = https.createServer(options, app);
 	httpsServer.listen(port);
 	console.log('RESTful API server started on: ' + port);
 
