@@ -23,6 +23,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Download certs
       run: |
+        ssh-keygen -R "${{ secrets.AWS_HOST }}"
         cd ..
         touch secret.pem
         echo "${{ secrets.INSTANCE_KEY }}" >> secret.pem
