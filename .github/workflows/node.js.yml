@@ -21,6 +21,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Download certs
+    - run: cd ..
+    - run: touch secret.pem
+    - run: echo "${{ secrets.INSTANCE_KEY }}" >> secret.pem
+    - run: chmod 400 secret.pem
+    - run: scp -r -i secret.pem ubuntu@{{ AWS_HOST }}:/home/ubuntu/sslcert sslcert
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
