@@ -14,11 +14,11 @@ var express = require('express'),
 	// HTTPS support
 	var https = require('https');
 	var fs = require('fs');
-	var ca = fs.readFileSync('../sslcert/multiuseapp_ddns_net.pem-chain', {encoding:'utf8'});
+	var cas = fs.readFileSync('../sslcert/multiuseapp_ddns_net.pem-chain', {encoding:'utf8'});
 	let options = {
 		cert: fs.readFileSync('../sslcert/multiuseapp_ddns_net.pem', {encoding:'utf8'}),
 		key: fs.readFileSync('../sslcert/multiuseapp.key', {encoding:'utf8'}),
-		ca: ca.split('-----END CERTIFICATE-----\r\n') .map(cert => cert +'-----END CERTIFICATE-----\r\n')
+		ca: cas.split('-----END CERTIFICATE-----\r\n') .map(cert => cert +'-----END CERTIFICATE-----\r\n')
 	}
 
 	//Client Server
