@@ -33,7 +33,6 @@ jobs:
         chmod 400 secret.pem
         mkdir sslcert
         scp -r -i secret.pem -o StrictHostKeyChecking=no ubuntu@"${{ secrets.AWS_HOST }}":/home/ubuntu/sslcert sslcert
-    - run: cd multiuse-project
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
