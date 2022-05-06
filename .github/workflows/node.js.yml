@@ -21,19 +21,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Download certs
-      run: |
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: |
         cd ..
         touch secret.pem
         echo "${{ secrets.INSTANCE_KEY }}" >> secret.pem
         chmod 400 secret.pem
         mkdir sslcert
         scp -r -i secret.pem -o StrictHostKeyChecking=no ubuntu@"${{ secrets.AWS_HOST }}":/home/ubuntu/sslcert sslcert
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+    - run: cd multiuse-project
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
