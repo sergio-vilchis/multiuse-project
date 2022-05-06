@@ -31,8 +31,7 @@ jobs:
         touch secret.pem
         echo "${{ secrets.INSTANCE_KEY }}" >> secret.pem
         chmod 400 secret.pem
-        mkdir sslcert
-        scp -r -i secret.pem -o StrictHostKeyChecking=no ubuntu@"${{ secrets.AWS_HOST }}":/home/ubuntu/sslcert sslcert
+        scp -r -i secret.pem -o StrictHostKeyChecking=no ubuntu@"${{ secrets.AWS_HOST }}":/home/ubuntu/sslcert ./
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
