@@ -17,5 +17,5 @@ jobs:
         with:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USER }}
-          key: ${{ secrets.AWS_KEY }}
-          script: sh deploy.sh
+          password: ${{ secrets.AWS_KEY }}
+          script: sh deploy.ps1
