@@ -19,9 +19,9 @@ jobs:
       run: |
         cd ..
         touch secret.pem
-        echo "${{ secrets.INSTANCE_KEY }}" >> secret.pem
+        echo "${{ secrets.AWS_KEY }}" >> secret.pem
         chmod 400 secret.pem
-        scp -r -i secret.pem -o StrictHostKeyChecking=no ubuntu@"${{ secrets.AWS_HOST }}":/home/ubuntu/sslcert ./
+        scp secret.pem -o StrictHostKeyChecking=no ${{secrets.AWS_USER}}@"${{ secrets.AWS_HOST }}":/Documents/GitHub/sslcert ./
     - name: Install dependencies
       run: npm i nyc --save-dev
     - name: Test Coverage

@@ -25,9 +25,9 @@ jobs:
       run: |
         cd ..
         touch secret.pem
-        echo "${{ secrets.INSTANCE_KEY }}" >> secret.pem
+        echo "${{ secrets.AWS_KEY }}" >> secret.pem
         chmod 400 secret.pem
-        scp -r -i secret.pem -o StrictHostKeyChecking=no ubuntu@"${{ secrets.AWS_HOST }}":/home/ubuntu/sslcert ./
+        scp secret.pem -o StrictHostKeyChecking=no ${{secrets.AWS_USER}}@"${{ secrets.AWS_HOST }}":/Documents/GitHub/sslcert ./
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
