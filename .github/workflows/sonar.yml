@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: npm i nyc --save-dev
     - name: Test Coverage
-      run: npm test
+      run: npm test NODE_ENV=${{environment.name}} CONNECTION_STRING=${{ secrets.CONNECTION_STRING }} PORT=${{ secrets.PORT }}
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
