@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function (clientApp) {
-    var contentTypeHtml = "text/html";
-    var mainFolder = "client/front-end";
+    let contentTypeHtml = "text/html";
+    let mainFolder = "client/front-end";
     const fs = require('fs').promises;
 
     clientApp.get('/', (_req, res) => {
