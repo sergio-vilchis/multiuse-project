@@ -31,13 +31,16 @@ jobs:
 
     - name: Download Certs
       run: |
+        sudo apt-get update -y
+        sudo apt install python3-pip -y
+        pip install gdown -y
         cd ..
         mkdir sslcert
         cd sslcert
-        wget 'https://drive.google.com/file/d/1k4NkKyGzlSHwuIClmSJ4rBvkc5j6iiOz/view?usp=sharing' -O multiuseapp.cer --compression=none
-        wget 'https://drive.google.com/file/d/1T7TO96C_EIWfeshn94HVIKZMb4Ik979p/view?usp=sharing' -O multiuseapp_ddns_net.pem --compression=none
-        wget 'https://drive.google.com/file/d/1Dbz3-UZ63LrR_sIqoIoshxTTrPMthew5/view?usp=sharing' -O multiuseapp.key --compression=none
-        wget 'https://drive.google.com/file/d/1i0bSfLsPY3VRaotq6uhcsRA7h8qRJc4d/view?usp=sharing' -O multiuseapp_ddns_net.pem-chain --compression=none
+        gdown 'https://drive.google.com/file/d/1k4NkKyGzlSHwuIClmSJ4rBvkc5j6iiOz/view?usp=sharing'
+        gdown 'https://drive.google.com/file/d/1T7TO96C_EIWfeshn94HVIKZMb4Ik979p/view?usp=sharing' 
+        gdown 'https://drive.google.com/file/d/1Dbz3-UZ63LrR_sIqoIoshxTTrPMthew5/view?usp=sharing'
+        gdown 'https://drive.google.com/file/d/1i0bSfLsPY3VRaotq6uhcsRA7h8qRJc4d/view?usp=sharing'
 
     - name: npm install, build, and test
       run: |
