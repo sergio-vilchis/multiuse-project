@@ -6,9 +6,9 @@
 const http = require('http');
 var express = require('express'),
 	apiApp = express(),
-	port = process.env.PORT || 8081,
+	port = 5050,
 	clientApp = express(),
-	portClient = process.env.PORT || 8080,
+	portClient = 5000,
 	bodyParser = require('body-parser'); //Library for API requests (server side)
 
 	//Client Server
