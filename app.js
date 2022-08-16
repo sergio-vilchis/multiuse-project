@@ -5,7 +5,7 @@
 
 const http = require('http');
 var express = require('express'),
-	app = express(),
+	apiApp = express(),
 	port = process.env.PORT || 8081,
 	clientApp = express(),
 	portClient = process.env.PORT || 8080,
@@ -20,13 +20,14 @@ var express = require('express'),
 	httpServerClient.listen(portClient);
 	console.log('Client app started on: ' + portClient);
 
-	app.use(bodyParser.urlencoded({ extended: true }));
-	app.use(bodyParser.json());
+	//API Server
+	apiApp.use(bodyParser.urlencoded({ extended: true }));
+	apiApp.use(bodyParser.json());
 	var routes = require('./server/login'); //importing login route to server
-	routes(app); //register the route
-	var httpServer = http.createServer(app);
+	routes(apiApp); //register the route
+	var httpServer = http.createServer(apiApp);
 	httpServer.listen(port);
 	console.log('RESTful API server started on: ' + port);
 
-	module.exports.app = app;
+	module.exports.apiApp = apiApp;
 	module.exports.clientApp = clientApp;
