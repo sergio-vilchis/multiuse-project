@@ -13,18 +13,10 @@ let dbConnection;
 module.exports = {
   connectToServer: function (callback) {
     client.connect(function (err, db) {
-      if (err || !db) {
-        return callback(err);
-      }
-
       dbConnection = db.db("MultiuseApp");
       console.log("Successfully connected to MongoDB.");
 
       return callback(null,dbConnection);
     });
-  },
-
-  getDb: function () {
-    return dbConnection;
   },
 };

@@ -26,7 +26,7 @@ let routes = require('./server/recipe'); //importing recipe route to server
 
 function initServer(){
 	//Database initialization
-	db.connectToServer(function(err,dbo){
+	return db.connectToServer(function(err,dbo){
 		clientServer(clientApp); //register webapp
 		routes(clientApp,dbo); //register the route
 		//Server init
