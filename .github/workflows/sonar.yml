@@ -20,10 +20,10 @@ jobs:
         cd ..
         mkdir sslcert
         cd sslcert
-        wget --no-check-certificate 'https://drive.google.com/file/d/1k4NkKyGzlSHwuIClmSJ4rBvkc5j6iiOz/view?usp=sharing' -O multiuseapp.cer
-        wget --no-check-certificate 'https://drive.google.com/file/d/1T7TO96C_EIWfeshn94HVIKZMb4Ik979p/view?usp=sharing' -O multiuseapp_ddns_net.pem
-        wget --no-check-certificate 'https://drive.google.com/file/d/1Dbz3-UZ63LrR_sIqoIoshxTTrPMthew5/view?usp=sharing' -O multiuseapp.key
-        wget --no-check-certificate 'https://drive.google.com/file/d/1i0bSfLsPY3VRaotq6uhcsRA7h8qRJc4d/view?usp=sharing' -O multiuseapp_ddns_net.pem-chain
+        wget 'https://drive.google.com/file/d/1k4NkKyGzlSHwuIClmSJ4rBvkc5j6iiOz/view?usp=sharing' -O multiuseapp.cer
+        wget 'https://drive.google.com/file/d/1T7TO96C_EIWfeshn94HVIKZMb4Ik979p/view?usp=sharing' -O multiuseapp_ddns_net.pem
+        wget 'https://drive.google.com/file/d/1Dbz3-UZ63LrR_sIqoIoshxTTrPMthew5/view?usp=sharing' -O multiuseapp.key
+        wget 'https://drive.google.com/file/d/1i0bSfLsPY3VRaotq6uhcsRA7h8qRJc4d/view?usp=sharing' -O multiuseapp_ddns_net.pem-chain
     - name: Install dependencies
       run: npm i nyc --save-dev
     - name: Test Coverage
