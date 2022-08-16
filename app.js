@@ -3,7 +3,9 @@
 */
 
 //Imports
-const dotenv = require('dotenv').config()
+if (process.env.NODE_ENV !== 'Production' && process.env.NODE_ENV !== 'Development') {
+	require('dotenv').config();
+}
 const http = require('http');
 const db = require('./database/db');
 
