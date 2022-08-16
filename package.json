@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "nyc -x \"**/test/**/**\" --reporter=lcov --reporter=text-summary mocha \"**/test/*Tests/*.js\" --recursive --exit",
-    "start": "gulp"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
