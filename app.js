@@ -2,24 +2,39 @@
 	Multiuse Project main file
 */
 
-
+//Imports
+const dotenv = require('dotenv').config()
 const http = require('http');
+const db = require('./database/db');
+
+//Express init
 let express = require('express'),
 	clientApp = express(),
-	portClient = 8080,
+	portClient = process.env.PORT,
 	bodyParser = require('body-parser'); //Library for API requests (server side)
+	clientApp.use(bodyParser.urlencoded({ extended: true }));
+	clientApp.use(bodyParser.json());
 
 //Client Server
-clientApp.use(bodyParser.urlencoded({ extended: true }));
-clientApp.use(bodyParser.json());
 let clientServer = require('./client/index.js');
-clientServer(clientApp);
+
 
 //API SERVER
-let routes = require('./server/login'); //importing login route to server
-routes(clientApp); //register the route
-let httpServerClient = http.createServer(clientApp);
-httpServerClient.listen(portClient);
-console.log('App started on: ' + portClient);
+let routes = require('./server/recipe'); //importing recipe route to server
+
+function initServer(){
+	//Database initialization
+	db.connectToServer(function(err,dbo){
+		clientServer(clientApp); //register webapp
+		routes(clientApp,dbo); //register the route
+		//Server init
+		let httpServerClient = http.createServer(clientApp);
+		httpServerClient.listen(portClient);
+		console.log('App started on: ' + portClient);
+	});
+}
+
+//Modules export
 module.exports.clientApp = clientApp;
 module.exports.apiApp = clientApp;
+module.exports.initServer = initServer()

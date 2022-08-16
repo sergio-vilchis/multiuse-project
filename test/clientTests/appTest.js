@@ -1,10 +1,20 @@
+const { assert } = require('chai');
 const request = require('supertest');
-const clientApp = require('../../app').clientApp
+const app = require('../../app')
+
+before(done => {
+  app.initServer
+  setTimeout(function() {
+    done();
+  }, 5000);
+});
 
 describe('GET root 200 Client', () => {
-  it('Should answer with 200', () => {
-    return request(clientApp)
+  it('Should answer with 200',  () => {
+     return request(app.clientApp)
       .get('/')
-      .expect(200, );
-  });
+      .then(response => {
+        assert.equal(response.statusCode,200);
+      })
+   })
 });

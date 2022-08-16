@@ -1,0 +1,9 @@
+{
+    "mocha": [
+        "**/test/*Tests/*.js"
+    ],
+    "exclude": [
+        "**/test/**/**","app.js"
+    ],
+    "ignore-class-method": ["validateEnv"]
+}
