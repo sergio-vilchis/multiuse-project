@@ -23,10 +23,10 @@ jobs:
         cd ..
         mkdir sslcert
         cd sslcert
-        gdown 'https://drive.google.com/file/d/1k4NkKyGzlSHwuIClmSJ4rBvkc5j6iiOz/view?usp=sharing'
-        gdown 'https://drive.google.com/file/d/1T7TO96C_EIWfeshn94HVIKZMb4Ik979p/view?usp=sharing' 
-        gdown 'https://drive.google.com/file/d/1Dbz3-UZ63LrR_sIqoIoshxTTrPMthew5/view?usp=sharing'
-        gdown 'https://drive.google.com/file/d/1i0bSfLsPY3VRaotq6uhcsRA7h8qRJc4d/view?usp=sharing'
+        gdown 'https://drive.google.com/file/d/1k4NkKyGzlSHwuIClmSJ4rBvkc5j6iiOz/view?usp=sharing' --fuzzy
+        gdown 'https://drive.google.com/file/d/1T7TO96C_EIWfeshn94HVIKZMb4Ik979p/view?usp=sharing' --fuzzy
+        gdown 'https://drive.google.com/file/d/1Dbz3-UZ63LrR_sIqoIoshxTTrPMthew5/view?usp=sharing' --fuzzy
+        gdown 'https://drive.google.com/file/d/1i0bSfLsPY3VRaotq6uhcsRA7h8qRJc4d/view?usp=sharing' --fuzzy
     - name: Install dependencies
       run: npm i nyc --save-dev
     - name: Test Coverage
