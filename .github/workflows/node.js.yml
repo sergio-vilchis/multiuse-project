@@ -11,7 +11,8 @@ on:
 
 jobs:
   build:
-
+    environment:
+      name: 'Development'
     runs-on: ubuntu-latest
 
     strategy:

@@ -9,6 +9,8 @@ on:
 name: SonarCloud Scan
 jobs:
   sonarcloud:
+    environment:
+      name: 'Development'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
