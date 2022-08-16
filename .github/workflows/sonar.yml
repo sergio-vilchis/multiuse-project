@@ -9,6 +9,10 @@ on:
 name: SonarCloud Scan
 jobs:
   sonarcloud:
+    env:
+      PORT: ${{ secrets.PORT}}
+      NODE_ENV: ${{ secrets.NODE_ENV}}
+      CONNECTION_STRING: ${{ secrets.CONNECTION_STRING}}
     environment:
       name: 'Development'
     runs-on: ubuntu-latest
@@ -21,7 +25,7 @@ jobs:
     - name: Install dependencies
       run: npm i nyc --save-dev
     - name: Test Coverage
-      run: npm test NODE_ENV=Development CONNECTION_STRING=${{ secrets.CONNECTION_STRING }} PORT=${{ secrets.PORT }}
+      run: npm test
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
