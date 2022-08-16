@@ -19,7 +19,7 @@ jobs:
       run: |
         sudo apt-get update -y
         sudo apt install python3-pip -y
-        pip install gdown -y
+        pip install gdown
         cd ..
         mkdir sslcert
         cd sslcert
