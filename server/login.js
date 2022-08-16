@@ -1,11 +1,11 @@
 'use strict';
-module.exports = function (app) {
+module.exports = function (apiApp) {
 
-    app.get('/', (_req, res) => {
+    apiApp.get('/', (_req, res) => {
         res.send('Saludos desde express Home');
     });
 
-    app.get('/login', (_req, res) => {
+    apiApp.get('/login', (_req, res) => {
         res.send('Saludos desde express Login');
     });
 };

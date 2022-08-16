@@ -9,13 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Download Certs
-      run: |
-        cd ..
-        touch secret.pem
-        echo "${{ secrets.INSTANCE_KEY }}" >> secret.pem
-        chmod 400 secret.pem
-        scp -r -i secret.pem -o StrictHostKeyChecking=no ubuntu@"${{ secrets.AWS_HOST }}":/home/ubuntu/sslcert ./
     - name: Build with Node.js
       uses: actions/setup-node@v3
       with:

@@ -2,7 +2,7 @@
   "name": "@sergio-vilchis/multiuse-project",
   "version": "0.0.1",
   "description": "[![Node.js CI](https://github.com/sergio-vilchis/multiuse-project/actions/workflows/node.js.yml/badge.svg)](https://github.com/sergio-vilchis/multiuse-project/actions/workflows/node.js.yml)\r [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sergio-vilchis_multiuse-project&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sergio-vilchis_multiuse-project)\r [![Dependency Review](https://github.com/sergio-vilchis/multiuse-project/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/sergio-vilchis/multiuse-project/actions/workflows/dependency-review.yml)\r [![Deploy to Amazon ECS](https://github.com/sergio-vilchis/multiuse-project/actions/workflows/aws.yml/badge.svg)](https://github.com/sergio-vilchis/multiuse-project/actions/workflows/aws.yml)\r ## Sergio Vilchis Quintero multiuse-project\r My personal multiuse-project",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
     "test": "nyc -x \"**/test/**/**\" --reporter=lcov --reporter=text-summary mocha \"**/test/*Tests/*.js\" --recursive --exit" 
   },
