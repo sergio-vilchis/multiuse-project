@@ -9,6 +9,12 @@ on:
 name: SonarCloud Scan
 jobs:
   sonarcloud:
+    env:
+      PORT: ${{ secrets.PORT}}
+      NODE_ENV: ${{ secrets.NODE_ENV}}
+      CONNECTION_STRING: ${{ secrets.CONNECTION_STRING}}
+    environment:
+      name: 'Development'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
