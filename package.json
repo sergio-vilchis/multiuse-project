@@ -32,8 +32,6 @@
     "mongodb": "^4.8.1",
     "request": "^2.88.2",
     "supertest": "^6.2.3"
-  },
-  "devDependencies": {
     "nyc": "^15.1.0"
   }
 }
