@@ -3,7 +3,7 @@
         "**/test/*Tests/*.js"
     ],
     "exclude": [
-        "**/test/**/**","app.js"
+        "**/test/**/**"
     ],
     "ignore-class-method": ["validateEnv"]
 }

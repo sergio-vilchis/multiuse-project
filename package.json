@@ -4,7 +4,7 @@
   "description": "[![Node.js CI](https://github.com/sergio-vilchis/multiuse-project/actions/workflows/node.js.yml/badge.svg)](https://github.com/sergio-vilchis/multiuse-project/actions/workflows/node.js.yml)\r [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sergio-vilchis_multiuse-project&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sergio-vilchis_multiuse-project)\r [![Dependency Review](https://github.com/sergio-vilchis/multiuse-project/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/sergio-vilchis/multiuse-project/actions/workflows/dependency-review.yml)\r [![Deploy to Amazon ECS](https://github.com/sergio-vilchis/multiuse-project/actions/workflows/aws.yml/badge.svg)](https://github.com/sergio-vilchis/multiuse-project/actions/workflows/aws.yml)\r ## Sergio Vilchis Quintero multiuse-project\r My personal multiuse-project",
   "main": "app.js",
   "scripts": {
-    "test": "nyc --reporter=lcov --reporter=text-summary mocha --recursive --exit --timeout 300000",
+    "test": "nyc --exclude \"app.js\" --reporter=lcov --reporter=text-summary mocha --recursive --exit --timeout 300000",
     "start": "node app.js"
   },
   "repository": {
