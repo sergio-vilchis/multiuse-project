@@ -14,6 +14,5 @@ before(done => {
 describe('Validate Server', () => {
   it('Should be true',  () => {
      assert.notEqual(app.apiApp, undefined);
-     assert.notEqual(app.clientApp, undefined);
    })
 });

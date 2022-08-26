@@ -17,17 +17,12 @@ let express = require('express'),
 	clientApp.use(bodyParser.urlencoded({ extended: true }));
 	clientApp.use(bodyParser.json());
 
-//Client Server
-let clientServer = require('./client/index.js');
-
-
 //API SERVER
 let routes = require('./server/recipe'); //importing recipe route to server
 
 function initServer(){
 	//Database initialization
 	return db.connectToServer(function(err,dbo){
-		clientServer(clientApp); //register webapp
 		routes(clientApp,dbo); //register the route
 		//Server init
 		let httpServerClient = http.createServer(clientApp);
@@ -37,6 +32,5 @@ function initServer(){
 }
 
 //Modules export
-module.exports.clientApp = clientApp;
 module.exports.apiApp = clientApp;
 module.exports.initServer = initServer()
